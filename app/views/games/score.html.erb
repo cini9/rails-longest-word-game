@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>Results</h1>
+  <% case @result[:result] when 1 %>
+    <% @grid_letters = @result[:grid].split(' ').join(', ') %>
+    <p>Sorry but <b><%= "#{@result[:word].upcase}" %></b> can not be made from <%= "#{@grid_letters}" %></p>
+    <% when 2 %>
+    <p>Sorry but <b><%= "#{@result[:word].upcase}" %></b> is not an english word...</p>
+    <% when 3 %>
+    <p>Nice!</p>
+  <% end %>
+  <p></p>
+  <p>Your total score is <%= "#{session[:score]}" %></p>
+  <%= link_to 'Play again', new_path  %>
+  <%= link_to 'Reset score', reset_path %>
+</div>
+
